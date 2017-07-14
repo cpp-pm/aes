@@ -470,7 +470,7 @@ static void InvCipher(void)
 /*****************************************************************************/
 /* Public functions:                                                         */
 /*****************************************************************************/
-#if defined(ECB) && (ECB == 1)
+#if defined(AES_ECB) && (AES_ECB == 1)
 
 
 void AES_ECB_encrypt(const uint8_t* input, const uint8_t* key, uint8_t* output, const uint32_t length)
@@ -500,7 +500,7 @@ void AES_ECB_decrypt(const uint8_t* input, const uint8_t* key, uint8_t *output, 
 }
 
 
-#endif // #if defined(ECB) && (ECB == 1)
+#endif // #if defined(AES_ECB) && (AES_ECB == 1)
 
 
 
