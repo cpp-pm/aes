@@ -9,12 +9,12 @@ extern "C" {
 
 // #define the macros below to 1/0 to enable/disable the mode of operation.
 //
-// CBC enables AES encryption in CBC-mode of operation.
+// AES_CBC enables AES encryption in CBC-mode of operation.
 // ECB enables the basic ECB 16-byte block algorithm. Both can be enabled simultaneously.
 
 // The #ifndef-guard allows it to be configured before #include'ing or at compile time.
-#ifndef CBC
-  #define CBC 1
+#ifndef AES_CBC
+# define AES_CBC 1
 #endif
 
 #ifndef ECB
@@ -33,12 +33,12 @@ void AES_ECB_decrypt(const uint8_t* input, const uint8_t* key, uint8_t *output, 
 #endif // #if defined(ECB) && (ECB == !)
 
 
-#if defined(CBC) && (CBC == 1)
+#if defined(AES_CBC) && (AES_CBC == 1)
 
 void AES_CBC_encrypt_buffer(uint8_t* output, uint8_t* input, uint32_t length, const uint8_t* key, const uint8_t* iv);
 void AES_CBC_decrypt_buffer(uint8_t* output, uint8_t* input, uint32_t length, const uint8_t* key, const uint8_t* iv);
 
-#endif // #if defined(CBC) && (CBC == 1)
+#endif // #if defined(AES_CBC) && (AES_CBC == 1)
 
 #ifdef __cplusplus
 } // extern "C"

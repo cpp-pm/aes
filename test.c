@@ -4,7 +4,7 @@
 
 // Enable both ECB and CBC mode. Note this can be done before including aes.h or at compile-time.
 // E.g. with GCC by using the -D flag: gcc -c aes.c -DCBC=0 -DECB=1
-#define CBC 1
+#define AES_CBC 1
 #define ECB 1
 
 #include "aes.h"

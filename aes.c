@@ -84,7 +84,7 @@ static uint8_t RoundKey[keyExpSize];
 // The Key input to the AES Program
 static const uint8_t* Key;
 
-#if defined(CBC) && CBC
+#if defined(AES_CBC) && AES_CBC
   // Initial Vector used only for CBC mode
   static uint8_t* Iv;
 #endif
@@ -506,7 +506,7 @@ void AES_ECB_decrypt(const uint8_t* input, const uint8_t* key, uint8_t *output, 
 
 
 
-#if defined(CBC) && (CBC == 1)
+#if defined(AES_CBC) && (AES_CBC == 1)
 
 
 static void XorWithIv(uint8_t* buf)
@@ -592,4 +592,4 @@ void AES_CBC_decrypt_buffer(uint8_t* output, uint8_t* input, uint32_t length, co
   }
 }
 
-#endif // #if defined(CBC) && (CBC == 1)
+#endif // #if defined(AES_CBC) && (AES_CBC == 1)
