@@ -21,10 +21,6 @@ extern "C" {
   #define AES_ECB 1
 #endif
 
-#define AES128 1
-//#define AES192 1
-//#define AES256 1
-
 #if defined(AES_ECB) && (AES_ECB == 1)
 
 void AES_ECB_encrypt(const uint8_t* input, const uint8_t* key, uint8_t *output, const uint32_t length);

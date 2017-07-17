@@ -3,6 +3,22 @@ project(aes VERSION 0.0.1)
 
 add_library(aes aes.c aes.h)
 
+set(AES_TYPE "128" CACHE STRING "AES: 128, 192, 256")
+
+string(COMPARE EQUAL "${AES_TYPE}" "128" is_128)
+string(COMPARE EQUAL "${AES_TYPE}" "192" is_192)
+string(COMPARE EQUAL "${AES_TYPE}" "256" is_256)
+
+if(is_128)
+  target_compile_definitions(aes PUBLIC AES128=1)
+elseif(is_192)
+  target_compile_definitions(aes PUBLIC AES192=1)
+elseif(is_256)
+  target_compile_definitions(aes PUBLIC AES256=1)
+else()
+  message(FATAL_ERROR "Logic error")
+endif()
+
 ####
 # Installation (https://github.com/forexample/package-example)
 
